@@ -13,7 +13,7 @@ const Public = () => {
                     TIFC restaurant<br />
                     Saket<br />
                     Delhi, India<br />
-                    <a href="tel:+15555555555">(555) 555-5555</a>
+                    <a href="tel:+15555555555">(+91) 7575900310</a>
                 </address>
                 <br />
                 <p>Owner: Madhurya Bharadwaaz</p>
