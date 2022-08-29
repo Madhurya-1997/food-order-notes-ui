@@ -2,7 +2,10 @@ import { createSelector, createEntityAdapter } from '@reduxjs/toolkit';
 import { apiSlice } from '../../app/api/apiSlice';
 
 
-const ordersAdapter = createEntityAdapter({});
+const ordersAdapter = createEntityAdapter({
+    // completed status should be at the end
+    sortComparer: (a, b) => a.completed - b.completed
+});
 
 const initialState = ordersAdapter.getInitialState();
 
