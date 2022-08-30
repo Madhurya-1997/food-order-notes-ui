@@ -52,6 +52,7 @@
 .icon-button:hover,
 .icon-button:focus-visible {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 .icon-button[disabled] {
@@ -76,6 +77,10 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+input:focus {
+  outline: none;
 }
 
 #root {
@@ -119,6 +124,10 @@ a:focus-visible {
   border-top: 2px solid var(--BORDER-COLOR);
   border-bottom: 2px solid var(--BORDER-COLOR);
   padding: 1em 0;
+}
+
+.dashboard a::before {
+  content: "➜ "
 }
 
 .public__addr {
@@ -261,6 +270,12 @@ tr {
   align-items: center;
   width: fit-content;
   gap: 0.5em;
+  margin-right: 2em;
+}
+
+.form__label--title {
+  margin-top: 1em;
+  font-weight: bold;
 }
 
 .form__persist {
@@ -299,7 +314,15 @@ tr {
 
 .form__select {
   width: fit-content;
-  padding: 0.25em;
+  padding: 0.5em 1em;
+}
+
+.form__option {
+  padding: 0 0.4em;
+}
+
+.form__options {
+  display: flex;
 }
 
 .form__action-buttons {

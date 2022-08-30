@@ -17,7 +17,7 @@ const UsersList = () => {
 
     if (isError) {
         console.log(error)
-        // content = <p className='errmsg'>{error?.data?.message}</p>
+        content = <p className='errmsg'>{error?.data?.message}</p>
     }
 
     if (isSuccess) {

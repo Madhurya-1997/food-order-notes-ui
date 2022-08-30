@@ -21,7 +21,7 @@ const User = ({ userId }) => {
                 <td className={`table__cell ${cellStatus}`}>
                     <button
                         className="icon-button table__button"
-                        onClick={() => { }}
+                        onClick={() => navigate(`/dash/users/${userId}`)}
                     >
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </button>

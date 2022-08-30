@@ -17,6 +17,9 @@ const Public = () => {
                 </address>
                 <br />
                 <p>Owner: Madhurya Bharadwaaz</p>
+
+                <p className='dashboard'><Link to="/dash">Go to Dashboard</Link></p>
+
             </main>
             <footer>
                 <Link to="/login">Employee Login</Link>
