@@ -46,17 +46,26 @@ const EditUserForm = ({ user }) => {
         if (isSuccess || isDeleteSuccess) {
             setUsername('')
             setPassword('')
+            setRoles([])
             navigate('/dash/users')
         }
     }, [isSuccess, isDeleteSuccess, navigate])
 
 
     const validUsernameClass = !validUsername ? 'form__input--incomplete' : ''
-    const validPasswordClass = !validPassword ? 'form__input--incomplete' : ''
+    const validPasswordClass = (!validPassword && password) ? 'form__input--incomplete' : ''
     const errorMessage = (error?.data?.message || deleteError?.data?.message) ?? ''
 
 
-    const onUpdateUser = () => { console.log("Updated") }
+    const onUpdateUser = async () => {
+        console.log("Updated")
+
+        if (password) {
+            await updateUser({ id: user.id, username, password, active, roles })
+        } else {
+            await updateUser({ id: user.id, username, password: user.password, active, roles })
+        }
+    }
     const onDeleteUser = () => { console.log("Deleted") }
 
     const handleCheckbox = type => {
@@ -65,7 +74,13 @@ const EditUserForm = ({ user }) => {
             setRoles([...roles, type])
     }
 
-    const canSave = true;
+    let canSave;
+
+    if (password) {
+        canSave = [roles.length, validUsername, validPassword].every(Boolean) && !isLoading;
+    } else {
+        canSave = [roles.length, validUsername].every(Boolean) && !isLoading;
+    }
 
 
     return (
@@ -114,7 +129,7 @@ const EditUserForm = ({ user }) => {
                     name="password"
                     type="password"
                     value={password}
-                    onChange={e => setUsername(e.target.value)}
+                    onChange={e => setPassword(e.target.value)}
                 />
 
                 <label className="form__label form__checkbox-container" htmlFor="user-active">
