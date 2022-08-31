@@ -32,12 +32,45 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
                     ]
                 } else return [{ type: 'Order', id: 'LIST' }];
             }
+        }),
+        createOrder: builder.mutation({
+            query: newOrder => ({
+                url: '/orders',
+                method: 'POST',
+                body: { ...newOrder }
+            }),
+            invalidatesTags: [
+                { type: 'Order', id: 'LIST' }
+            ]
+        }),
+        updateOrder: builder.mutation({
+            query: updatedOrder => ({
+                url: '/orders',
+                method: 'PUT',
+                body: { ...updatedOrder }
+            }),
+            invalidatesTags: (result, error, args) => [
+                { type: 'Order', id: args.id }
+            ]
+        }),
+        deleteOrder: builder.mutation({
+            query: ({ id }) => ({
+                url: '/orders',
+                method: 'DELETE',
+                body: { id }
+            }),
+            invalidatesTags: (result, error, args) => [
+                { type: 'Order', id: args.id }
+            ]
         })
     })
 })
 
 export const {
-    useGetOrdersQuery
+    useGetOrdersQuery,
+    useCreateOrderMutation,
+    useUpdateOrderMutation,
+    useDeleteOrderMutation
 } = ordersApiSlice;
 
 
