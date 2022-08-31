@@ -9,7 +9,11 @@ const OrdersList = () => {
         isSuccess,
         isError,
         error
-    } = useGetOrdersQuery();
+    } = useGetOrdersQuery(undefined, {
+        pollingInterval: 5000,
+        refetchOnMountOrArgChange: true,
+        refetchOnFocus: true
+    });
 
     let content;
 
