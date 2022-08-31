@@ -1,6 +1,7 @@
 import React from 'react'
 
-const EditOrderForm = () => {
+const EditOrderForm = ({ orderId }) => {
+    console.log(orderId)
     return (
         <div>EditOrderForm</div>
     )

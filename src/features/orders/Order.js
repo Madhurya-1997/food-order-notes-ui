@@ -30,7 +30,7 @@ const Order = ({ orderId }) => {
                 <td className="table__cell">
                     <button
                         className="icon-button table__button"
-                        onClick={() => { }}
+                        onClick={() => navigate(`/dash/orders/${order._id}`)}
                     >
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </button>
