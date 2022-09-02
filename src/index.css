@@ -31,6 +31,7 @@
   background-color: var(--TABLE-BGCOLOR);
   color: var(--ERROR);
   padding: 0.25em;
+  font-weight: bold;
   margin-bottom: 0.5em;
 }
 
@@ -295,6 +296,13 @@ tr {
 .form__submit-button {
   padding: 0.5em;
   border-radius: 15px;
+}
+
+.form__submit-button:hover {
+  color: whitesmoke;
+  background: black;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 .form__input--text {
