@@ -354,6 +354,10 @@ tr {
   gap: 0.5em;
 }
 
+.dash-header__container--small {
+  max-width: 800px;
+}
+
 @media screen and (max-width: 400px) {
   h1 {
     font-size: 2rem;

@@ -21,7 +21,7 @@ const OrdersList = () => {
 
     if (isError) {
         console.log(error)
-
+        return <p className='errmsg'>{error?.data?.message}</p>
     }
 
     if (isSuccess) {
