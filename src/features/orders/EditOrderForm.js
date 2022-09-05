@@ -13,13 +13,11 @@ const EditOrderForm = ({ order, users }) => {
     }] = useUpdateOrderMutation();
 
     const [deleteOrder, {
-        isDeleteLoading,
-        isDeleteSuccess,
-        isDeleteError,
-        deleteError
+        isLoading: isDeleteLoading,
+        isSuccess: isDeleteSuccess,
+        isError: isDeleteError,
+        error: deleteError
     }] = useDeleteOrderMutation();
-
-    console.log(order, users)
 
     const navigate = useNavigate();
 
