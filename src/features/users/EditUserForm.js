@@ -66,7 +66,9 @@ const EditUserForm = ({ user }) => {
             await updateUser({ id: user.id, username, password: user.password, active, roles })
         }
     }
-    const onDeleteUser = () => { console.log("Deleted") }
+    const onDeleteUser = async () => {
+        await deleteUser({ id: user.id })
+    }
 
     const handleCheckbox = type => {
         roles.includes(type) ?
